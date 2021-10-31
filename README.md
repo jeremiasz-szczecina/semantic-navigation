@@ -46,9 +46,14 @@ Unfortunately, there weren't any public datasets that could be useful for me, so
 
 ### Results (for now)
 Details about model that I use are in the code (ipynb file). It is trained on 300 images only, so results are still far from acceptable; however, at this moment I think we can tell, that it's all going in the right direction. 
-Image, ground-truth, prediction:
-((result1))
-((result2))
+<p align="center">Image, ground-truth, prediction:</p>
+<p align="center">
+  <img width="300" height="549" src="images/result1.png">
+</p>
+
+<p align="center">
+  <img width="300" height="549" src="images/result1.png">
+</p>
 
 ### Plans for the future
 I'm still not sure how to make a transition from having free space mask to setting proper velocities to the robot's encoders. For now, I think about using VFH algorithm.
