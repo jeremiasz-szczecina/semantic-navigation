@@ -21,11 +21,15 @@ I use this repo as a convenient way of storing and describing my progress in com
 - ROS Melodic
 
 ### LabBot robot
+<p align="center">Platform on which the whole structure will be implemented. You can see the omnidirectional sensor at the top.</p>
+<p align="center">
+  <img src="images/labbot.png">
+</p>
 
 ### Choosing system architecture
 Thesis is all about navigation and avoiding obstacles, so one of the main tasks is allowing our robot to actually recognize them before doing some avoiding-related stuff. Obstacle detection can be implemented in many ways, such as using typical YOLO or R-CNN detector, however choosing this path generates a huge drawback (which, in my opinion, makes this approach kinda dumb - in my specific case, of course) - such models can recognize only objects that were shown to them during training process. Let's assume, that we put something in front of the working robot, that its model sees this object a very first time. There's possibility, that our robot will simply go straight, it won't care about any unknown stuff and... cause collision.
-That's why I've given my attention to a way more universal solution - binary semantic segmentation.
-(obraz jakis)
+
+That's why I've given my attention to a way more universal solution - binary [semantic segmentation](https://www.jeremyjordan.me/semantic-segmentation/).
 I'm still a beginner in machine learning, so I don't want to do some fancy overcomplicated stuff. My main priority is simplicity, therefore I want my neural network to have two classes: free space and everything else.
 For semantic segmentation there's a lot of tutorials and repos available, so if someone has well prepared dataset, there's huge probability that even one of many tutorials on youtube will help them to create and train appropiate model. Problem in my case is, that in aforementioned materials all the spotlight is stolen by heavy (but also effective) models, like Unet with ResNet or VGG backbone.
 System has to be effective and fast, so I can't use such big models, because it would make real time navigation pretty much impossible. I had to focus on architectures that maintain good effectiveness, while being significantly lighter and these options intrigued me:
@@ -41,8 +45,11 @@ These articles were kinda helpful.
 2. [Where to drive: free space detection with one fisheye camera](https://arxiv.org/abs/2011.05822)
 
 ### Preparing dataset
-Unfortunately, there weren't any public datasets that could be useful for me, so I had to create my own. To make this, I had to carry out a series of recordings from driving LabBot around our laboratory (steering by gamepad) and save camera footage to rosbag files. From this moment there's only dirty work left: watching gathered videos, making screenshots, creating some simple python scripts to trim these images, and using CVAT to mark free space on each of them. So far I have total of 300 images - need to augment them somehow and probably do more recordings as it's still too small dataset. Sample image (left) and ground truth (right).
-((obraz))
+Unfortunately, there weren't any public datasets that could be useful for me, so I had to create my own. To make this, I had to carry out a series of recordings from driving LabBot around our laboratory (steering by gamepad) and save camera footage to rosbag files. From this moment there's only dirty work left: watching gathered videos, making screenshots, creating some simple python scripts to trim these images, and using CVAT to mark free space on each of them. So far I have total of 300 images - need to augment them somehow and probably do more recordings as it's still too small dataset.
+<p align="center">Sample image (left) and ground truth (right):</p>
+<p align="center">
+  <img width="798" height="300" src="images/img_groundtruth.png">
+</p>
 
 ### Results (for now)
 Details about model that I use are in the code (ipynb file). It is trained on 300 images only, so results are still far from acceptable; however, at this moment I think we can tell, that it's all going in the right direction. 
