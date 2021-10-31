@@ -37,8 +37,12 @@ System has to be effective and fast, so I can't use such big models, because it 
 I continued my research (also in terms of ease of implementation for newbies) and stomped on [this](https://github.com/baudcode/tf-semantic-segmentation) library. It provides already configured various models, so you don't have to invent the wheel once again. I decided to use ERFNet model from this repo on my dataset and see where it goes.
 
 ### Preparing dataset
-Unfortunately, there weren't any public datasets that could be useful for me, so I had to create my own. To make this, I had to carry out a series of recordings from driving LabBot around our laboratory (steering by gamepad) and save camera footage to rosbag files. From this moment there's only dirty work left: watching gathered videos, making screenshots, creating some simple python scripts to trim these images, and using CVAT to mark free space on each of them. So far I have total of 300 images - need to augment them somehow and probably do more recordings as it's still too small dataset.
+Unfortunately, there weren't any public datasets that could be useful for me, so I had to create my own. To make this, I had to carry out a series of recordings from driving LabBot around our laboratory (steering by gamepad) and save camera footage to rosbag files. From this moment there's only dirty work left: watching gathered videos, making screenshots, creating some simple python scripts to trim these images, and using CVAT to mark free space on each of them. So far I have total of 300 images - need to augment them somehow and probably do more recordings as it's still too small dataset. Sample image (left) and ground truth (right).
+((obraz))
 
+### Results
+
+### Plans for the future
 
 1. [Deep Learning based Background Subtraction: A Systematic Survey](https://www.researchgate.net/publication/341049745_Deep_Learning_based_Background_Subtraction_A_Systematic_Survey/link/5f040841299bf1881607d9a5/download)
 2. [Where to drive: free space detection with one fisheye camera](https://arxiv.org/abs/2011.05822)
