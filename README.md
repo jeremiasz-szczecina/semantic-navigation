@@ -17,7 +17,7 @@ I use this repo as a convenient way of storing and describing my progress in com
 - Google Colab for training neural nets, so I don't have to burn my poor laptop
 - CVAT for marking image masks
 - Linux (Ubuntu 20.04), simple Bash scripting
-- Python and its frameworks and libraries: TensorFlow 2, OpenCV, numpy, [tf-semantic-segmentation](https://github.com/baudcode/tf-semantic-segmentation), [albumentations](https://github.com/albumentations-team/albumentations)
+- Python and its frameworks and libraries: TensorFlow 2, OpenCV, numpy, [tf-semantic-segmentation](https://github.com/baudcode/tf-semantic-segmentation), [albumentations](https://github.com/albumentations-team/albumentations), [tqdm](https://github.com/tqdm/tqdm)
 - ROS Melodic
 
 ### LabBot robot
