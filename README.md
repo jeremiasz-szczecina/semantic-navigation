@@ -71,6 +71,17 @@ Dataset had been augmented (if you're curious: see utils/augmentation.py), we in
 We're in a process of implementing VFH-like algorithm, based on [this](http://www-personal.umich.edu/~johannb/Papers/paper16.pdf) article.
 So far I've written a simple algorithm that maps detected free space into bar histogram of ranges from image center. Labbot is going to start from a particular point and will have hardcoded target coordinates. By processing 1) the difference between robot's and said target's position and 2) data about obstacles around our robot from the histogram, a proper direction and speeds will be sent to labbot's encoders. 
 
+<p align="center">
+  <img width="1200" height="300" src="images/ex1.png">
+</p>
+
+<p align="center">
+  <img width="1200" height="300" src="images/ex2.png">
+</p>
+
+<p align="center">
+  <img width="1200" height="300" src="images/ex3.png">
+</p>
 
 ### Plans for the future
 - testing navigation plans,
