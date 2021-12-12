@@ -77,15 +77,15 @@ Small guidance on viewing masks and histograms, angles go like this:
 </p>
 
 <p align="center">
-  <img width="1100" height="275" src="images/ex1.png">
+  <img width="900" height="225" src="images/ex1.png">
 </p>
 
 <p align="center">
-  <img width="1100" height="275" src="images/ex2.png">
+  <img width="900" height="225" src="images/ex2.png">
 </p>
 
 <p align="center">
-  <img width="1100" height="275" src="images/ex3.png">
+  <img width="900" height="225" src="images/ex3.png">
 </p>
 
 ### Plans for the future
