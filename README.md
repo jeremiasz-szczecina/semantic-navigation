@@ -73,7 +73,7 @@ So far I've written a simple algorithm that maps detected free space into bar hi
 Small guidance on viewing masks and histograms, angles go like this:
 
 <p align="center">
-  <img width="300" height="300" src="images/angle_masks.png">
+  <img width="300" height="300" src="images/angles_masks.png">
 </p>
 
 <p align="center">
