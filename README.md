@@ -65,7 +65,7 @@ Details about model that we use are in the code (ipynb file). It is trained on 3
 
 
 ### Results and dataset update (2021-12-12)
-Dataset had been augmented (if you're curious: see utils/aug.py), we increased number of images from 300 to 1100 and we plan to stop at circa 2000. Results are better, I think it could already carry out some basic navigation, however there's still a problem - we keep getting space between tables' and chairs' legs marked as free. This is something we want to avoid and eliminate; labbot can't enter there physically, so it needs to be corrected.
+Dataset had been augmented (if you're curious: see utils/augmentation.py), we increased number of images from 300 to 1100 and we plan to stop at circa 2000. Results are better, I think it could already carry out some basic navigation, however there's still a problem - we keep getting space between tables' and chairs' legs marked as free. This is something we want to avoid and eliminate; labbot can't enter there physically, so it needs to be corrected.
 
 ### Navigation
 We're in a process of implementing VFH-like algorithm, based on [this](http://www-personal.umich.edu/~johannb/Papers/paper16.pdf) article.
