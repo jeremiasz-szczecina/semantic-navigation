@@ -45,14 +45,14 @@ These articles were kinda helpful.
 1. [Deep Learning based Background Subtraction: A Systematic Survey](https://www.researchgate.net/publication/341049745_Deep_Learning_based_Background_Subtraction_A_Systematic_Survey/link/5f040841299bf1881607d9a5/download)
 2. [Where to drive: free space detection with one fisheye camera](https://arxiv.org/abs/2011.05822)
 
-### Preparing dataset
+### Preparing dataset (2021-11-02, update below)
 Unfortunately, there weren't any public datasets that could be useful for us, so we had to create our own. To make this, we had to carry out a series of recordings from driving LabBot around our laboratory (steering by gamepad) and save camera footage to rosbag files. From this moment there was only dirty work left: watching gathered videos, making screenshots, creating some simple python scripts to trim these images, and using CVAT to mark free space on each of them. So far we have total of 300 images - need to augment them somehow and probably do more recordings as this dataset is still too small.
 <p align="center">Sample image (left) and ground truth (right):</p>
 <p align="center">
   <img width="798" height="300" src="images/img_groundtruth.png">
 </p>
 
-### Results (for now)
+### Results (2021-11-02, update below)
 Details about model that we use are in the code (ipynb file). It is trained on 300 images only, so results are still far from acceptable; however, at this moment I think we can tell, that it's all going in the right direction. 
 <p align="center">Image, ground-truth, prediction:</p>
 <p align="center">
@@ -63,5 +63,14 @@ Details about model that we use are in the code (ipynb file). It is trained on 3
   <img width="300" height="549" src="images/result1.png">
 </p>
 
+
+### Results and dataset update (2021-12-12)
+Dataset had been augmented, we increased number of images from 300 to 1100 and we plan to stop at circa 2000. Results are better, I think it could already carry out some basic navigation, however there's still a problem - we keep getting space between tables' and chairs' legs marked as free. This is something we want to avoid and eliminate; labbot can't enter there physically, so it needs to be corrected.
+
+### Navigation
+We're in a process of implementing VFH-like algorithm, based on [this](http://www-personal.umich.edu/~johannb/Papers/paper16.pdf) article.
+So far I've written a simple algorithm that maps detected free space into bar histogram of ranges from image center. Labbot is going to start from a particular point and will have hardcoded target coordinates. By processing 1) the difference between robot's and said target's position and 2) data about obstacles around our robot from the histogram, a proper direction and speeds will be sent to labbot's encoders. 
+
+
 ### Plans for the future
-We're still not sure how to make a transition from having free space mask to setting proper velocities to the robot's encoders. For now, we think about using VFH algorithm.
+Testing navigation plans.
