@@ -9,15 +9,15 @@ from cv_bridge import CvBridge
 import cv2
 import tensorflow as tf
 import time
-import keras
+import os
 
 
 class Callbacks:
     def __init__(self):
         self.image = None
         self.bridge = CvBridge()
-        self.folder_path = '/home/jerszc/pyscripts/frames/'
-        self.erfnet_interpreter = tf.lite.Interpreter(model_path='erfnet_100ep_acc_no_opt.tflite')
+        self.folder_path = os.getenv("FOLDER_PATH")
+        self.erfnet_interpreter = tf.lite.Interpreter(model_path=os.getenv("MODEL_PATH"))
         self.erfnet_interpreter.allocate_tensors()
         self.erfnet_input_details = self.erfnet_interpreter.get_input_details()
         self.erfnet_output_details = self.erfnet_interpreter.get_output_details()
